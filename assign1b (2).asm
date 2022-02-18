@@ -1,4 +1,4 @@
-//UCID:30120288 Name:Aoqi Li
+
 .text                                               //Declear string
 x_number: .string "Current x value: %d  "           //x value to print
 y_number: .string "Current y value: %d  "           //y value to print
