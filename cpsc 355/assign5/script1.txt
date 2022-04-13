@@ -1,0 +1,145 @@
+Script started on 2022-04-01 11:48:23-06:00
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ make
+m4 a5a.asm > a5a.s
+as a5a.s -o a5a.o
+gcc a5a.o a5aMain.o -o a5a
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ ./a5a
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be pushed: 2
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be pushed: 4
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 6
+
+Invalid option! Try again.
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be pushed: 6
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be pushed: 8
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be pushed: 10
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 12 
+
+Enter the positive integer value to be pushed: 12
+
+Stack overflow! Cannot push value onto stack.
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 3
+
+Current stack contents:
+ 10 <-- top of stack
+ 8
+ 6
+ 4
+ 2
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 2
+
+Popped value is 10
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 2
+
+Popped value is 8
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 2
+
+Popped value is 6
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 3
+
+Current stack contents:
+ 4 <-- top of stack
+ 2
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 2
+
+Popped value is 4
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 2
+
+Popped value is 2
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 3
+
+Empty stack
+
+Press the return key to continue . . . 
+[3J[H[2J### Stack Operations ###
+
+Press 1 - Push, 2 - Pop, 3 - Display, 4 - Exit
+Your option? 4
+
+Terminating program
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ exit
+exit
+
+Script done on 2022-04-01 11:49:38-06:00

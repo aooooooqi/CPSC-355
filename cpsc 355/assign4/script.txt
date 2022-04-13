@@ -1,0 +1,70 @@
+Script started on 2022-03-18 01:00:18-06:00
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ m4 assign4.asm >output.s [K
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ gcc output.s [K
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ ./a.out [K
+Initial box value:
+Box first origin = (0, 0) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 1 height = 1 area = 1
+
+Changed box values:
+Box first origin = (-5, 7) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 3 height = 3 area = 9
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ gbd a.out [K
+bash: gbd: command not found
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ gdb a.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+---Type <return> to continue, or q <return> to quit---
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) break *box [K_dispose
+Breakpoint 1 at 0x4007b4
+(gdb) bra[Keak *changed_box
+Breakpoint 2 at 0x4007e4
+(gdb) r
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Initial box value:
+Box first origin = (0, 0) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 1 height = 1 area = 1
+
+Breakpoint 1, 0x00000000004007b4 in box_dispose ()
+(gdb) x/5d $fp + 16
+0xffffffffee30:	0	0	1	1
+0xffffffffee40:	1
+(gdb) continue 
+Continuing.
+
+Breakpoint 2, 0x00000000004007e4 in changed_box ()
+(gdb) x/5d $fp + 36
+0xffffffffee44:	0	0	3	3
+0xffffffffee54:	9
+(gdb) continue 
+Continuing.
+
+Changed box values:
+Box first origin = (-5, 7) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 3 height = 3 area = 9
+[Inferior 1 (process 32629) exited with code 071]
+(gdb) q
+]0;aoqi.li1@csa1:~aoqi.li1@csa1:~$ exit
+exit
+
+Script done on 2022-03-18 01:01:44-06:00

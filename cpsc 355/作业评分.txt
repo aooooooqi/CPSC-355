@@ -1,0 +1,24 @@
+A1：100/100
+Nice work!
+A2：97/100
+Excellent work. You lost one point because your comments were 
+a little messy and you technically wrote a post test (instead of a pre test) loop.
+A3:100/100
+Excellent work! Just a note, technically "random" is non standard C, 
+but is commonly provided by various C libraries (including glibc, 
+the C library we are using in this class). 
+So to be "fully" correct you should have written bl rand (instead of bl random). Very minor detail however.
+A4:94/100
+You were allocating too much space in some of your subroutines. 
+Any subroutine that has no local variables only needs 16 bytes for the frame record, 
+and something like equal only needs 20 bytes for the  frame record + 4 byte local variable, -1 point.
+You did use a local variable on the stack for "result" inside the equal function, -2 points.
+A5:87/100
+-5 points: incorrect usage of calle-saved registers in part A.
+-3 points: no range checking for input arguments in part B.
+A6:unknow
+...
+
+
+
+

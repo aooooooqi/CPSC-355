@@ -1,0 +1,249 @@
+Script started on 2022-02-10 01:14:04-07:00
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ m4 assign2a.asm >output.s [K
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gcc oi[Kutput.s [K
+output.s: Assembler messages:
+output.s: Warning: end of file in comment; newline inserted
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ .[Kgdb a.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) break *shift_right:[K
+Breakpoint 1 at 0x40068c
+(gdb) display/i $pc
+1: x/i $pc
+<error: No registers.>
+(gdb) run [K
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+multiplier = 0x00000046 (70)  multiplicand = 0xfefefefe (-16843010)
+
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) display/i $pc
+2: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $x20[K[K[Kw[K[K[K[K[K[K[K[Kprint $w19
+$1 = 70
+(gdb) print $w20
+$2 = 4278124286
+(gdb) print $w21
+$3 = 0
+(gdb) run[K[K[Kcontinue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+2: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19
+$4 = 35
+(gdb) print $w20
+$5 = 4278124286
+(gdb) print $w21
+$6 = 4278124286
+(gdb) continue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+2: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19
+$7 = 17
+(gdb) print $w20
+$8 = 4278124286
+(gdb) print $w21
+$9 = 4269702781
+(gdb) delete brr[Keakpoints 1
+(gdb) continue [K
+Continuing.
+product = 0xffffffff multiplier = 0xb9b9b974
+64-bit result = 0xffffffffb9b9b974 (-1179010700)
+[Inferior 1 (process 15550) exited normally]
+(gdb) q
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ m4 assign2b.asm >output.s [K
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gcc output.s [K
+output.s: Assembler messages:
+output.s: Warning: end of file in comment; newline inserted
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ ./a.out [K
+multiplier = 0x000000c8 (200)  multiplicand = 0x1f1f1f1f (522133279)
+
+product = 0x00000018 multiplier = 0x50505038
+64-bit result = 0x0000001850505038 (104426655800)
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gdb a.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) break *[K[K[K[K[K[K[Kbreak *shift_right
+Breakpoint 1 at 0x40068c
+(gdb) run
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+multiplier = 0x000000c8 (200)  multiplicand = 0x1f1f1f1f (522133279)
+
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19
+$1 = 200
+(gdb) print $w20
+$2 = 522133279
+(gdb) print $w20[K1
+$3 = 0
+(gdb) continue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w20[K[K19
+$4 = 100
+(gdb) print $w20[K0
+$5 = 522133279
+(gdb) print $w20[K1
+$6 = 0
+(gdb) continue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w20[K[K19
+$7 = 50
+(gdb) print $w20[K[K[K[K[K[K[K[K[K[Kprint $w20
+$8 = 522133279
+(gdb) print $w20[K1
+$9 = 0
+(gdb) delete breakpoints 1
+(gdb) continue [K
+Continuing.
+product = 0x00000018 multiplier = 0x50505038
+64-bit result = 0x0000001850505038 (104426655800)
+[Inferior 1 (process 16480) exited normally]
+(gdb) q
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ m4 assign2c.asm >output.s [K
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gcc output.s [K
+output.s: Assembler messages:
+output.s: Warning: end of file in comment; newline inserted
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ ./a.out [K[K[K[K[K.out 
+multiplier = 0xffffff00 (-256)  multiplicand = 0xf0f0f0f0 (-252645136)
+
+product = 0x0000000f multiplier = 0x0f0f1000
+64-bit result = 0x0000000f0f0f1000 (64677154816)
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gdb print $w20[K[K[K[K[K[K[K[K[K[Ka.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) br[K[Kbreak *shift_right
+Breakpoint 1 at 0x40068c
+(gdb) c[Krun
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+multiplier = 0xffffff00 (-256)  multiplicand = 0xf0f0f0f0 (-252645136)
+
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19
+$1 = 4294967040
+(gdb) print $w19[K[K20
+$2 = 4042322160
+(gdb) print $w19[K[K21
+$3 = 0
+(gdb) continue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19[K9
+$4 = 2147483520
+(gdb) print $w19[K[K20
+$5 = 4042322160
+(gdb) print $w19[K[K21
+$6 = 0
+(gdb) continue [K
+Continuing.
+
+Breakpoint 1, 0x000000000040068c in shift_right ()
+1: x/i $pc
+=> 0x40068c <shift_right>:	asr	w19, w19, #1
+(gdb) print $w19[K9
+$7 = 1073741760
+(gdb) print $w19[K[K20
+$8 = 4042322160
+(gdb) print $w19[K[K21
+$9 = 0
+(gdb) delete breakpoints 1
+(gdb) continue [K
+Continuing.
+product = 0x0000000f multiplier = 0x0f0f1000
+64-bit result = 0x0000000f0f0f1000 (64677154816)
+[Inferior 1 (process 17093) exited normally]
+(gdb) q
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ exit
+exit
+
+Script done on 2022-02-10 01:23:05-07:00

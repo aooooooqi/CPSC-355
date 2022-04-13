@@ -1,0 +1,124 @@
+Script started on 2022-01-31 13:08:15-07:00
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gcc assign1a.s
+assign1a.s: Assembler messages:
+assign1a.s: Warning: end of file in comment; newline inserted
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ a./[K[K[K./a[Ka.out [K
+Current x value: -9  Current y value: -2960  Current minumun: -2960
+Current x value: -8  Current y value: -5539  Current minumun: -5539
+Current x value: -7  Current y value: -6382  Current minumun: -6382
+Current x value: -6  Current y value: -6029  Current minumun: -6382
+Current x value: -5  Current y value: -4948  Current minumun: -6382
+Current x value: -4  Current y value: -3535  Current minumun: -6382
+Current x value: -3  Current y value: -2114  Current minumun: -6382
+Current x value: -2  Current y value: -937  Current minumun: -6382
+Current x value: -1  Current y value: -184  Current minumun: -6382
+Current x value: 0  Current y value: 37  Current minumun: -6382
+Current x value: 1  Current y value: -310  Current minumun: -6382
+Current x value: 2  Current y value: -1189  Current minumun: -6382
+Current x value: 3  Current y value: -2492  Current minumun: -6382
+Current x value: 4  Current y value: -4039  Current minumun: -6382
+Current x value: 5  Current y value: -5578  Current minumun: -6382
+Current x value: 6  Current y value: -6785  Current minumun: -6785
+Current x value: 7  Current y value: -7264  Current minumun: -7264
+Current x value: 8  Current y value: -6547  Current minumun: -7264
+Current x value: 9  Current y value: -4094  Current minumun: -7264
+Current x value: 10  Current y value: 707  Current minumun: -7264
+The minumun of y is :-7264
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gdb a.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) break *min_valuecheck [K
+Breakpoint 1 at 0x40066c
+(gdb) r
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, 0x000000000040066c in min_valuecheck ()
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+(gdb) x/5i min_valuecheck
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+   0x400670 <min_valuecheck+4>:	cmp	x20, x21
+   0x400674 <min_valuecheck+8>:	b.ge	0x40067c <loop>  // b.tcont
+   0x400678 <min_valuecheck+12>:	mov	x21, x20
+   0x40067c <loop>:	adrp	x0, 0x400000
+(gdb) continue [K
+Continuing.
+Current x value: -9  Current y value: -2960  Current minumun: -2960
+
+Breakpoint 1, 0x000000000040066c in min_valuecheck ()
+1: x/i $pc
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+(gdb) x/5i min_valuecheck
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+   0x400670 <min_valuecheck+4>:	cmp	x20, x21
+   0x400674 <min_valuecheck+8>:	b.ge	0x40067c <loop>  // b.tcont
+   0x400678 <min_valuecheck+12>:	mov	x21, x20
+   0x40067c <loop>:	adrp	x0, 0x400000
+(gdb) print $x20[K[K19
+$1 = -8
+(gdb) print $x20
+$2 = -5539
+(gdb) print $x21
+$3 = -2960
+(gdb) continue [K
+Continuing.
+Current x value: -8  Current y value: -5539  Current minumun: -5539
+
+Breakpoint 1, 0x000000000040066c in min_valuecheck ()
+1: x/i $pc
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+(gdb) x/5i min_valuecheck
+=> 0x40066c <min_valuecheck>:	add	x24, x24, x23
+   0x400670 <min_valuecheck+4>:	cmp	x20, x21
+   0x400674 <min_valuecheck+8>:	b.ge	0x40067c <loop>  // b.tcont
+   0x400678 <min_valuecheck+12>:	mov	x21, x20
+   0x40067c <loop>:	adrp	x0, 0x400000
+(gdb) delet [K[K[K[K[Kelt[Kete x_[K[Kbreakpoints 1
+(gdb) continue [K
+Continuing.
+Current x value: -7  Current y value: -6382  Current minumun: -6382
+Current x value: -6  Current y value: -6029  Current minumun: -6382
+Current x value: -5  Current y value: -4948  Current minumun: -6382
+Current x value: -4  Current y value: -3535  Current minumun: -6382
+Current x value: -3  Current y value: -2114  Current minumun: -6382
+Current x value: -2  Current y value: -937  Current minumun: -6382
+Current x value: -1  Current y value: -184  Current minumun: -6382
+Current x value: 0  Current y value: 37  Current minumun: -6382
+Current x value: 1  Current y value: -310  Current minumun: -6382
+Current x value: 2  Current y value: -1189  Current minumun: -6382
+Current x value: 3  Current y value: -2492  Current minumun: -6382
+Current x value: 4  Current y value: -4039  Current minumun: -6382
+Current x value: 5  Current y value: -5578  Current minumun: -6382
+Current x value: 6  Current y value: -6785  Current minumun: -6785
+Current x value: 7  Current y value: -7264  Current minumun: -7264
+Current x value: 8  Current y value: -6547  Current minumun: -7264
+Current x value: 9  Current y value: -4094  Current minumun: -7264
+Current x value: 10  Current y value: 707  Current minumun: -7264
+The minumun of y is :-7264
+[Inferior 1 (process 12151) exited normally]
+(gdb) e[Kq
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ exit
+exit
+
+Script done on 2022-01-31 13:11:21-07:00

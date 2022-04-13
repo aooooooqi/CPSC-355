@@ -1,0 +1,101 @@
+Script started on 2022-01-31 00:31:27-07:00
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ m4 assign1b.asm >output.s [K
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gcc [K[K[K[Kgcc output.s [K
+output.s: Assembler messages:
+output.s: Warning: end of file in comment; newline inserted
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ ./a.out [K
+Current x value: -10  Current y value: 1967  Current minumun: 1967
+Current x value: -9  Current y value: -2960  Current minumun: -2960
+Current x value: -8  Current y value: -5539  Current minumun: -5539
+Current x value: -7  Current y value: -6382  Current minumun: -6382
+Current x value: -6  Current y value: -6029  Current minumun: -6382
+Current x value: -5  Current y value: -4948  Current minumun: -6382
+Current x value: -4  Current y value: -3535  Current minumun: -6382
+Current x value: -3  Current y value: -2114  Current minumun: -6382
+Current x value: -2  Current y value: -937  Current minumun: -6382
+Current x value: -1  Current y value: -184  Current minumun: -6382
+Current x value: 0  Current y value: 37  Current minumun: -6382
+Current x value: 1  Current y value: -310  Current minumun: -6382
+Current x value: 2  Current y value: -1189  Current minumun: -6382
+Current x value: 3  Current y value: -2492  Current minumun: -6382
+Current x value: 4  Current y value: -4039  Current minumun: -6382
+Current x value: 5  Current y value: -5578  Current minumun: -6382
+Current x value: 6  Current y value: -6785  Current minumun: -6785
+Current x value: 7  Current y value: -7264  Current minumun: -7264
+Current x value: 8  Current y value: -6547  Current minumun: -7264
+Current x value: 9  Current y value: -4094  Current minumun: -7264
+Current x value: 10  Current y value: 707  Current minumun: -7264
+The minumun of y is :-7264
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ gdb a.out [K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...(no debugging symbols found)...done.
+(gdb) breal [K[Kl[Kk *gr[Koto end
+No symbol table is loaded.  Use the "file" command.
+(gdb) bra[Kealk[K[Kl [K[Kk *goy[Kto_end
+Breakpoint 1 at 0x400694
+(gdb) run
+Starting program: /home/uga/aoqi.li1/a.out 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+Current x value: -10  Current y value: 1967  Current minumun: 1967
+Current x value: -9  Current y value: -2960  Current minumun: -2960
+Current x value: -8  Current y value: -5539  Current minumun: -5539
+Current x value: -7  Current y value: -6382  Current minumun: -6382
+Current x value: -6  Current y value: -6029  Current minumun: -6382
+Current x value: -5  Current y value: -4948  Current minumun: -6382
+Current x value: -4  Current y value: -3535  Current minumun: -6382
+Current x value: -3  Current y value: -2114  Current minumun: -6382
+Current x value: -2  Current y value: -937  Current minumun: -6382
+Current x value: -1  Current y value: -184  Current minumun: -6382
+Current x value: 0  Current y value: 37  Current minumun: -6382
+Current x value: 1  Current y value: -310  Current minumun: -6382
+Current x value: 2  Current y value: -1189  Current minumun: -6382
+Current x value: 3  Current y value: -2492  Current minumun: -6382
+Current x value: 4  Current y value: -4039  Current minumun: -6382
+Current x value: 5  Current y value: -5578  Current minumun: -6382
+Current x value: 6  Current y value: -6785  Current minumun: -6785
+Current x value: 7  Current y value: -7264  Current minumun: -7264
+Current x value: 8  Current y value: -6547  Current minumun: -7264
+Current x value: 9  Current y value: -4094  Current minumun: -7264
+Current x value: 10  Current y value: 707  Current minumun: -7264
+
+Breakpoint 1, 0x0000000000400694 in goto_end ()
+(gdb) x/5i main[K[K[K[Kgoto_end [K
+=> 0x400694 <goto_end>:	adrp	x0, 0x400000
+   0x400698 <goto_end+4>:	add	x0, x0, #0x5d5
+   0x40069c <goto_end+8>:	mov	x1, x21
+   0x4006a0 <goto_end+12>:	bl	0x400480 <printf@plt>
+   0x4006a4 <end>:	ldp	x29, x30, [sp], #16
+(gdb) prinyt[K[Kt $x[Kx_[K[Kx11[K9
+$1 = 11
+(gdb) print $x20
+$2 = 707
+(gdb) print $x22[K1
+$3 = -7264
+(gdb) continue [K
+Continuing.
+The minumun of y is :-7264
+[Inferior 1 (process 12890) exited normally]
+(gdb) q
+]0;aoqi.li1@csa3:~aoqi.li1@csa3:~$ exit
+exit
+
+Script done on 2022-01-31 00:34:51-07:00
